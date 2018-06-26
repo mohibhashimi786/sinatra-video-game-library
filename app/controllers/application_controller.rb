@@ -11,8 +11,8 @@ class ApplicationController < Sinatra::Base
 
   get "/" do 
 
-  	"hello world"
-  	
+  	"Testing"
+
   end
 
 end
