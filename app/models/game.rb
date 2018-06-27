@@ -1,5 +1,6 @@
 class Game < ActiveRecord::Base
 
-	belongs_to :game_console
+	belongs_to :player
+	belongs to :game_console
 
 end

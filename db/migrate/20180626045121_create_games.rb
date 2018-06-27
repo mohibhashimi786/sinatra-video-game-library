@@ -5,6 +5,7 @@ class CreateGames < ActiveRecord::Migration[5.2]
   		t.string :name
   		t.string :genre
   		t.integer :game_console_id
+  		t.integer :player_id
   	end
 
   end

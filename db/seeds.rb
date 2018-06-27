@@ -1,5 +1,4 @@
 # Add seed data here. Seed your database with `rake db:seed`
-sophie = Owner.create(name: "Sophie")
 legend_of_zelda = Game.create(name: "Legend of Zelda", genre: "role-play", game_console_id: 1)
 donkey_kong = Game.create(name: "Donkey Kong", genre: "action", game_console_id: 1)
 super_mario = Game.create(name: "Super Mario", genre: "role play", game_console_id: 1)
