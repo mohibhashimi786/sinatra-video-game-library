@@ -5,4 +5,7 @@ if ActiveRecord::Base.connection.migration_context.needs_migration?
 end
 
 use Rack::MethodOverride 
+use GameConsolesController
+use GameController 
+use PlayersController
 run ApplicationController 
