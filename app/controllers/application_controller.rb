@@ -9,10 +9,31 @@ class ApplicationController < Sinatra::Base
     set :session_secret, "bucketlistsecurity"
   end
 
-  get "/" do 
+	  get "/" do 
 
-  	"Testing"
+	  	"Testing"
 
-  end
+	  end
+
+	  helpers do 
+
+	  	def logged_in?
+	  		!!session[:user_id]
+	  	end
+
+
+	  	def current_player
+	  		@user = Player.find(session[:user_id]) 
+	  	end
+
+	  	
+
+
+
+
+	  end
+
+
+
 
 end
