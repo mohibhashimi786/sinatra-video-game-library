@@ -1,4 +1,9 @@
 class Player < ActiveRecord::Base
+
+
 	has_secure_password
-	has_many :games
+	has_many :game_consoles
+	has_many :games, through: :game_consoles
+	
 end
+
