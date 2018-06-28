@@ -1,11 +1,12 @@
 class PlayersController < ApplicationController
 
 
-	get '/players/signup;' do 
+	 get '/signup' do 
 
-		erb :"/players/signup" 
-		
+		erb :"/players/create_player" 
+
 	end
+
 
 
 end

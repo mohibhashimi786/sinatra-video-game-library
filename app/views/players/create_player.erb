@@ -1,13 +1,15 @@
 <form action="/players/signup" method="post">
 
 
-<label for="player[username]">Username:</label>
-<input type="text" name="player[username]" id="username" placeholder="username">
+<p><label for="player[username]">Username:</label>
+<input type="text" name="player[username]" id="username" placeholder='Choose a Username' onfocus="this.placeholder = ''" onblur="this.placeholder = 'Choose a Username'" /></p>
 
-<input type="text" name="player[moniker]" id="Moniker" placeholder="Moniker">
+<p><label for="player[moniker]">Moniker</label>
+<input type="text" name="player[moniker]" id="Moniker" placeholder="Choose a Moniker" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Choose a Moniker'" /></p>
 
-<label for="name[password]">Password</label>
-<input type="text" name="player[password]" id="password" placeholder="Password">
+<p><label for="name[password]">Password</label>
+<input type="text" name="player[password]" id="password" placeholder="Choose a Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Choose a Password'" /></p>
 
 
-<input type="submit" value="Create User">
+<h3 align="center" onMouseOver="this.style.color='#00F'"
+   onMouseOut="this.style.color='#000'"><input type="submit" value="Create User"></h3>
