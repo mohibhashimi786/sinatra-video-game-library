@@ -11,7 +11,7 @@ class ApplicationController < Sinatra::Base
 
 	  get "/" do 
 
-	  	"Testing"
+	  erb :"/index"
 
 	  end
 
