@@ -1,14 +1,14 @@
-<form action="/players/signup" method="post">
+<form action="/signup" method="post">
 
 
-<p><label for="player[username]">Username:</label>
-<input type="text" name="player[username]" id="username" placeholder='Choose a Username' onfocus="this.placeholder = ''" onblur="this.placeholder = 'Choose a Username'" /></p>
+<p><label for="player[email]">Email:</label>
+<input type="text" name="player[email]" id="email" placeholder='Enter your Email Address' onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your Email Address'" /></p>
 
-<p><label for="player[moniker]">Moniker</label>
+<p><label for="player[moniker]">Moniker:</label>
 <input type="text" name="player[moniker]" id="Moniker" placeholder="Choose a Moniker" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Choose a Moniker'" /></p>
 
-<p><label for="name[password]">Password</label>
-<input type="text" name="player[password]" id="password" placeholder="Choose a Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Choose a Password'" /></p>
+<p><label for="name[password]">Password:</label>
+<input type="password" name="player[password]" id="password" minLength="8" required placeholder="8 characters minimum" /></p>
 
 
 <h3 align="center" onMouseOver="this.style.color='#00F'"
