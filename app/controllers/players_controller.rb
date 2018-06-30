@@ -8,10 +8,7 @@ class PlayersController < ApplicationController
 	end
 
 	post '/signup' do
-		if logged_in?
-			redirect to "/games"
-		else
-			if Player.create(params[:player]).valid?
+			if Player.create(params[:player]).valid? 
 				@player = Player.create(params[:player])
 				session[:user_id] = @player.id 
 			
@@ -19,9 +16,13 @@ class PlayersController < ApplicationController
 			else
 				redirect to "/signup"
 			end
-		end
 	end
+	
+	get '/login' do 
 
+		erb :"players/login"
+		
+	end
 
 
 

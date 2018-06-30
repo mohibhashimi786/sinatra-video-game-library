@@ -18,6 +18,8 @@ gem 'pry'
 gem 'bcrypt'
 gem "tux"
 gem 'email_validator'
+gem 'data_mapper'
+
 
 group :test do
   gem 'rspec'
