@@ -5,6 +5,7 @@ class Player < ActiveRecord::Base
 	validates :email, presence: true
 	validates_uniqueness_of :email
 	validates :moniker, presence: true
+	validates_uniqueness_of :moniker
 	validates :password_confirmation, presence: true, on: :create 
   	validates :password, confirmation: true, presence: true,
                        length: { minimum: 8 }, on: :create

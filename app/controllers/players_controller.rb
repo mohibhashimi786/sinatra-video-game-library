@@ -19,8 +19,6 @@ class PlayersController < ApplicationController
 
 	post '/signup' do
 
-		
-
 			if Player.create(params[:player]).valid? 
 				@player = Player.create(params[:player])
 				session[:user_id] = @player.id 
