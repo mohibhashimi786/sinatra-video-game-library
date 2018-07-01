@@ -1,10 +1,19 @@
 class PlayersController < ApplicationController
 	
+	get '/players/:slug' do
+		@player = Player.find_by_slug(params[:slug])
+
+		erb :"/players/show"
+	end
+	
 
 	get '/signup' do 
 
-
-		erb :"/players/create_player", :layout => :intro_layout
+			if logged_in?
+				redirect to "/games"
+			else
+			erb :"/players/create_player", :layout => :intro_layout
+			end
 
 	end
 
@@ -22,7 +31,11 @@ class PlayersController < ApplicationController
 	
 	get '/login' do 
 
+		if !logged_in?
 		erb :"players/login"
+		else
+		redirect to "/games"
+		end
 
 	end
 
@@ -37,5 +50,15 @@ class PlayersController < ApplicationController
 			redirect to "/login"
 		end
 	end
+
+	get '/logout' do 
+		if logged_in?
+			session.clear 
+			redirect to "/login"
+		else
+			redirect to "/"
+		end
+	end
+
 
 end
