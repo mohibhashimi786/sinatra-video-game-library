@@ -11,7 +11,8 @@ class ApplicationController < Sinatra::Base
 
 	  get "/" do 
 
-	  erb :"/index"
+	  erb :"/index", :layout => :intro_layout
+ 
 
 	  end
 
@@ -25,7 +26,7 @@ class ApplicationController < Sinatra::Base
 
 
 	  	def current_player
-	  		@user = Player.find(session[:user_id]) 
+	  		@player = Player.find(session[:user_id]) 
 	  	end
 
 	  	

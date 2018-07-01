@@ -3,6 +3,7 @@ require_relative "concerns/slugifiable.rb"
 class Player < ActiveRecord::Base
 
 	validates :email, presence: true
+	validates_uniqueness_of :email
 	validates :moniker, presence: true
 	validates :password_confirmation, presence: true, on: :create 
   	validates :password, confirmation: true, presence: true,
