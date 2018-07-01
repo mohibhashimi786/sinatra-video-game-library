@@ -5,7 +5,7 @@ class PlayersController < ApplicationController
 
 		erb :"/players/show"
 	end
-	
+
 
 	get '/signup' do 
 
@@ -18,6 +18,8 @@ class PlayersController < ApplicationController
 	end
 
 	post '/signup' do
+
+		
 
 			if Player.create(params[:player]).valid? 
 				@player = Player.create(params[:player])
@@ -41,7 +43,7 @@ class PlayersController < ApplicationController
 
 	post '/login' do 
 
-		@player = Player.find(params[:moniker])
+		@player = Player.find_by(moniker: params[:moniker])
 
 		if @player && @player.authenticate(params[:password])
 			session[:user_id] = @player.id 
@@ -49,6 +51,8 @@ class PlayersController < ApplicationController
 		else
 			redirect to "/login"
 		end
+
+
 	end
 
 	get '/logout' do 
