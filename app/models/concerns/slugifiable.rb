@@ -16,7 +16,7 @@ module Slugifiable
 
 		def slug
 
-			self.name.downcase.gsub(" ", "-")
+			self.moniker.downcase.gsub(" ", "-")
 
 		end
 
