@@ -1,1 +1,28 @@
 
+<h1>Game Creation Center</h1>
+
+<form action="/games" method="post">
+
+
+<h2> Game Info </h2>
+<p><label for="game[title]">Game Title:</label>
+<input type="text" name="game[title]"></p>
+
+<p><label for="game[genre]">Game Genre:</label>
+<input type="text" name="game[genre]"></p>
+
+
+<h2>Choose your Console</h2>
+<%@consoles.each do |console| %>
+	<input type="radio" name="game[game_console_id]" value="<%=console.id%>" id="<%=console.id%>"> <%=console.name%> 
+	<%end%>
+
+<br><br>
+
+<label>If not listed above, please type in Game's Console</label>
+<input type="text" name="game_console[name]" id="game_console_name"></input>
+
+<input type="submit" value="Create Game">
+
+</form>
+

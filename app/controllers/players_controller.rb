@@ -22,7 +22,7 @@ class PlayersController < ApplicationController
 			if Player.create(params[:player]).valid? 
 				@player = Player.create(params[:player])
 				session[:user_id] = @player.id 
-			
+				
 				redirect to "/games"
 			else
 				redirect to "/signup"
@@ -41,9 +41,9 @@ class PlayersController < ApplicationController
 
 	post '/login' do 
 
-		@player = Player.find_by(moniker: params[:moniker])
+		@player = Player.find_by(moniker: params[:player][:moniker])
 
-		if @player && @player.authenticate(params[:password])
+		if @player && @player.authenticate(params[:player][:password])
 			session[:user_id] = @player.id 
 			redirect to "/games"
 		else
