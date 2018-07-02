@@ -30,6 +30,7 @@ class GamesController < ApplicationController
 
 
 	post '/games' do 
+		
 		if logged_in?
 
 			@game = Game.create(params[:game])

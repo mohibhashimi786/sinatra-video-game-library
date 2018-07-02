@@ -1,5 +1,3 @@
-require_relative "concerns/slugifiable.rb"
-
 class Player < ActiveRecord::Base
 
 	validates :email, presence: true
@@ -10,12 +8,23 @@ class Player < ActiveRecord::Base
   	validates :password, confirmation: true, presence: true,
                        length: { minimum: 8 }, on: :create
     
-
-	extend Slugifiable::ClassMethod
-	include Slugifiable::InstanceMethod
 	
 	has_secure_password
 	has_many :games
+
+
+		def slug
+
+			self.moniker.downcase.gsub(" ", "-")
+
+		end
+
+		def self.find_by_slug(slug)
+
+			self.all.find {|instance| instance.slug == slug}
+
+		end
+
 	
 end
 

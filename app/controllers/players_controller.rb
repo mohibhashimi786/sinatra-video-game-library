@@ -1,6 +1,7 @@
 class PlayersController < ApplicationController
 	
 	get '/players/:slug' do
+		
 		@player = Player.find_by_slug(params[:slug])
 
 		erb :"/players/show"

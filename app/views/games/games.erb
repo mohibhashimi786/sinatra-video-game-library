@@ -1,12 +1,45 @@
 
-<%@games.each do |game| %>
+<style>
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
 
-<li><%=game.title%></li>
-<li><%=game.genre%></li>
-<li><%=game.game_console%></li>
-<br>
-<br>
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+</style>
+
+<table>
+	<tr>
+		<th>Moniker</th>
+		<th>Game Title</th>
+		<th>Game Genre</th>
+		<th>Game Console</th>
+	</tr>
+	<tr>
+		<%@games.each do |game| %>
+
+		<td><%=game.player.moniker%></td>
+		<td><%=game.title%></td>
+		<td><%=game.genre%></td>
+		<td><%=game.game_console.name%></td>
+	<tr>
+
+				<br>
+				
 <%end%>
+</table>
+
+
 
 TESTING <%=Time.now%>
 
