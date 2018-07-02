@@ -2,6 +2,7 @@ require_relative "concerns/slugifiable.rb"
 
 class Game < ActiveRecord::Base
 
+
 	extend Slugifiable::ClassMethod
 	include Slugifiable::InstanceMethod
 	

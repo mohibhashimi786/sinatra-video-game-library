@@ -8,6 +8,13 @@ module Slugifiable
 
 		end
 
+		def find_by_slug(title_slug)
+
+			self.all.find {|instance| instance.title_slug == title_slug}
+
+		end
+
+
 
 	end
 
@@ -19,6 +26,14 @@ module Slugifiable
 			self.moniker.downcase.gsub(" ", "-")
 
 		end
+
+
+		def title_slug
+
+			self.title.downcase.gsub(" ", "-")
+
+		end
+
 
 	end
 

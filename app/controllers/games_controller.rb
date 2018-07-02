@@ -23,17 +23,35 @@ class GamesController < ApplicationController
 		end
 	end
 
-	#post '/games' do 
-	#	if logged_in?
-	#		if !params[:game][:title].empty? && !params[:game][:genre].empty?
-	#			@game = Game.create(title: params[:game][:title], genre: params[:game][:genre])
-	#				if !params([:game_console][:name]).empty?
-	#					@game.game_console = GameConsole.create(name: params[:game_console][:name])
-	#			current_player.games << @game
-	#	binding.pry
-	#end
+	get '/games/:title_slug' do 
+		@game = Game.find_by_slug(params[:title_slug])
+		erb :'/games/show_game'
+	end
 
 
+	post '/games' do 
+		if logged_in?
+
+			@game = Game.create(params[:game])
+
+				if !params[:game_console][:name].empty?
+					@game.game_console = GameConsole.create(name: params[:game_console][:name])
+				end
+
+			current_player.games << @game 
+			current_player.save
+			@game.save
+			
+			redirect to "games/#{@game.title_slug}"
+
+		else
+
+		 	redirect to "/login"
+
+		 end
+	end
+
+	 
 
 	
 
