@@ -1,7 +1,15 @@
 
 <%@player.games.each do |game| %>
-<%=game.title%>
+<a href="/games/<%=game.title_slug%>"><%=game.title%></a>
+
+<a href="/games/<%=game.title_slug%>/edit">Edit</a>
 <br>
 <%end%>
 
-testing....
+<div style="position: absolute; bottom: 40px;  width: 100%; text-align:center;">
+<a href="/games/new"><h3><b>Create New Game<b></h3></a>
+</div>
+
+
+
+

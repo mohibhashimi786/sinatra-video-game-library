@@ -19,17 +19,21 @@ th {
 
 <table>
 	<tr>
+		<th>Game Owner</th>
 		<th>Game Title</th>
 		<th>Game Genre</th>
 		<th>Game Console</th>
 	</tr>
 	<tr>
+		<td><%=@game.player.moniker%></td>
 		<td><%=@game.title%></td>
 		<td><%=@game.genre%></td>
-		<td><%=@game.game_console.name%></td>
+		<td><a href="/game_consoles/<%=@game.game_console.console_slug%>"><%=@game.game_console.name%></td>
 	<tr>
 
 				<br>
 </table>
 <%=Time.now%>
+
+
 

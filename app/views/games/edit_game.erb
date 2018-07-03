@@ -1,0 +1,41 @@
+<h2 align="center">Game Modification</h2><br>
+
+
+<h2 align="center"> Game Info </h2>
+
+<form action="/games/<%=@game.title_slug%>" method="post">
+<input id="hidden" type="hidden" name="_method" value="patch">
+
+
+<p><label for="game[title]">Game Title:</label>
+<input type="text" name="game[title]" value="<%=@game.title%>" required></p>
+
+<p><label for="game[genre]">Game Genre:</label>
+<input type="text" name="game[genre]" value="<%=@game.genre%>" required></p><br><br>
+
+<div id="consoles" style="border:2px solid black">
+<h2>Choose your Console</h2>
+<%@consoles.each do |console| %>
+	<input type="radio" name="game[game_console_id]" value="<%=console.id%>" id="<%=console.id%>" <%= 'checked' if @game.game_console == console %>><%=console.name%>
+	</input>
+	<%end%>
+
+
+
+
+
+
+
+<br><br>
+
+
+<label>If not listed above, please type in Game's Console</label>
+<input type="text" name="game_console[name]" id="game_console_name"></input>
+</div><br><br>
+
+<div align="center"><input type="submit" value="Update Game"></div><br><br>
+
+</form>
+
+
+<%=Time.now%>

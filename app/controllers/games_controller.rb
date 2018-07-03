@@ -23,17 +23,7 @@ class GamesController < ApplicationController
 		end
 	end
 
-	get '/games/:title_slug' do 
-		@game = Game.find_by_slug(params[:title_slug])
-			if logged_in? && @game
-				erb :'/games/show_game'
-			else
-				redirect to '/login'
-			end
-	end
-
-
-
+	
 	post '/games' do 
 		
 		if logged_in?
@@ -57,7 +47,52 @@ class GamesController < ApplicationController
 		 end
 	end
 
-	 
+	get '/games/:title_slug' do 
+		@game = Game.find_by_slug(params[:title_slug])
+			if logged_in? && @game
+				erb :'/games/show_game'
+			else
+				redirect to '/login'
+			end
+	end
+
+	get '/games/:title_slug/edit' do 
+		
+		if !logged_in?
+			redirect to "/login"
+		else
+			@game = Game.find_by_slug(params[:title_slug])
+			@consoles = GameConsole.all
+
+			if current_player.id == @game.player_id
+			erb :"/games/edit_game"
+			else
+			redirect to "/games/games"
+			end
+
+		end
+
+	end
+
+	patch '/games/:title_slug' do 
+		if !logged_in?
+			redirect to "/login"
+		else
+
+			@game = Game.find_by_slug(params[:title_slug])
+			@game.update(params[:game])
+
+			if !params[:game_console][:name].empty?
+				@game.game_console = GameConsole.create(name: params[:game_console][:name])
+			end
+			@game.save
+			current_player.save
+
+			redirect to "/games/#{@game.title_slug}"
+		
+		end
+	end
+
 
 	
 
