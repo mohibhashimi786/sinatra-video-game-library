@@ -19,17 +19,21 @@ th {
 
 <table>
 	<tr>
-		<th>Game Title</th>
-		<th>Game Genre</th>
-		<th>Game Console</th>
+		<th>Game Console Name</th>
+		<!-- Can add additional attributes here if need be <th>Game Title</th> -->
+		
 	</tr>
 	<tr>
-		<td><%=@game.title%></td>
-		<td><%=@game.genre%></td>
-		<td><%=@game.game_console.name%></td>
+		<%@game_consoles.each do |console| %>
+
+		<td><a href="/game_consoles/<%=console.console_slug%>"><%=console.name%></td>
 	<tr>
 
 				<br>
+				
+<%end%>
 </table>
-<%=Time.now%>
 
+<br>
+
+<%=Time.now%>

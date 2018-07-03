@@ -25,8 +25,13 @@ class GamesController < ApplicationController
 
 	get '/games/:title_slug' do 
 		@game = Game.find_by_slug(params[:title_slug])
-		erb :'/games/show_game'
+			if logged_in? && @game
+				erb :'/games/show_game'
+			else
+				redirect to '/login'
+			end
 	end
+
 
 
 	post '/games' do 
