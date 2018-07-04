@@ -94,6 +94,23 @@ class GamesController < ApplicationController
 	end
 
 
+	delete '/games/:title_slug/delete' do 
+		if !logged_in?
+			redirect to "/login"
+		else
+
+			@game = Game.find_by_slug(params[:title_slug])
+			
+			if @game && current_player.id == @game.player_id
+				
+				@game.delete
+				redirect to "/games"
+
+			else
+				"/games/#{@game.title_slug}"
+			end
+		end
+	end
 	
 
 end

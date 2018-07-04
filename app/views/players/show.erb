@@ -3,13 +3,17 @@
 <a href="/games/<%=game.title_slug%>"><%=game.title%></a>
 
 <a href="/games/<%=game.title_slug%>/edit">Edit</a>
+<form action="/games/<%=game.title_slug%>/delete" method="post">
+<input id="hidden" type="hidden" name="_method" value="delete">
+<input type="submit" value="delete">
+</form>
 <br>
 <%end%>
+
+
 
 <div style="position: absolute; bottom: 40px;  width: 100%; text-align:center;">
 <a href="/games/new"><h3><b>Create New Game<b></h3></a>
 </div>
-
-
 
 
