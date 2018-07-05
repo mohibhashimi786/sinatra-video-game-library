@@ -1,4 +1,4 @@
-
+<br><br><br>
 <table>
 	<tr>
 		<th>Game Title</th>
@@ -6,7 +6,7 @@
 		<th>Game Console</th>
 	</tr>
 	<tr>
-
+<h3 align="center"><%=@player.moniker%> Games</h3>
 <%@player.games.each do |game| %>
 <td><a href="/games/<%=game.title_slug%>"><%=game.title%></a></td>
 <td><%=game.genre%></td>

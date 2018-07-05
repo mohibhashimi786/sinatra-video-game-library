@@ -1,6 +1,7 @@
 <!--display_layout-->
-
+<br><br><br>
 <h1>Index of all <%=@console.name%> Games</h1>
+	<%if @console.games.count > 0 %>
 <table>
 	<tr>
 		<th>Title of Game</th>
@@ -18,6 +19,9 @@
 				
 <%end%>
 </table>
+	<%else%>
+	<%="There are no games currently owned for this Console"%>
+	<%end%>
 
 <br>
 
