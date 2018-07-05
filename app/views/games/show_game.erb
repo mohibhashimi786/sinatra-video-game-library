@@ -1,22 +1,4 @@
-<style>
-table {
-    border-collapse: collapse;
-    width: 100%;
-}
-
-th, td {
-    text-align: left;
-    padding: 8px;
-}
-
-tr:nth-child(even){background-color: #f2f2f2}
-
-th {
-    background-color: #4CAF50;
-    color: white;
-}
-</style>
-
+<!--display_layout-->
 <table>
 	<tr>
 		<th>Game Owner</th>
@@ -25,10 +7,14 @@ th {
 		<th>Game Console</th>
 	</tr>
 	<tr>
-		<td><%=@game.player.moniker%></td>
+		<td><a href="/players/<%=@game.player.slug%>"><%=@game.player.moniker%></td>
 		<td><%=@game.title%></td>
 		<td><%=@game.genre%></td>
 		<td><a href="/game_consoles/<%=@game.game_console.console_slug%>"><%=@game.game_console.name%></td>
+			<%if current_player.id == @game.player_id%>
+		<td><a href="/games/<%=@game.title_slug%>/edit">Edit</a></td>
+		<td><form action="/games/<%=@game.title_slug%>/delete" method="post"><input id="hidden" type="hidden" name="_method" value="delete"><input type="submit" value="delete"></td>
+		<%end%>
 	<tr>
 
 				<br>
@@ -36,7 +22,7 @@ th {
 <div style="position: absolute; bottom: 40px;  width: 100%; text-align:center;">
 <a href="/games/new"><h3><b>Create New Game<b></h3></a>
 </div>
-<%=Time.now%>
+
 
 
 

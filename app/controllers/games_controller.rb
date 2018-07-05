@@ -5,7 +5,7 @@ class GamesController < ApplicationController
 			@games = Game.all 
 
 			if logged_in?
-			erb :"/games/games"
+			erb :"/games/games", :layout => :display_layout
 			else
 			redirect to "/login"
 			end
@@ -50,7 +50,7 @@ class GamesController < ApplicationController
 	get '/games/:title_slug' do 
 		@game = Game.find_by_slug(params[:title_slug])
 			if logged_in? && @game
-				erb :'/games/show_game'
+				erb :'/games/show_game', :layout => :display_layout
 			else
 				redirect to '/login'
 			end

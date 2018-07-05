@@ -1,32 +1,17 @@
-<style>
-table {
-    border-collapse: collapse;
-    width: 100%;
-}
+<!--display_layout-->
 
-th, td {
-    text-align: left;
-    padding: 8px;
-}
-
-tr:nth-child(even){background-color: #f2f2f2}
-
-th {
-    background-color: #4CAF50;
-    color: white;
-}
-</style>
-
+<h1>Index of all <%=@console.name%> Games</h1>
 <table>
 	<tr>
-		<th><%=@console.name%></th>
-	
+		<th>Title of Game</th>
+		<th>Genre of Game</th>
+		<th>Game Owner</th>
 	</tr>
 	<tr>
 		<%@console.games.each do |game| %>
 		<td><a href="/games/<%=game.title_slug%>"><%=game.title%></a></td>
-		
-		
+		<td><%=game.genre%>
+		<td><a href="/players/<%=game.player.slug%>"><%=game.player.moniker%></td>
 	<tr>
 
 				<br>
@@ -35,5 +20,5 @@ th {
 </table>
 
 <br>
-<%=Time.now%>
+
 

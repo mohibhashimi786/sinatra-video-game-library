@@ -1,34 +1,21 @@
-
-<style>
-table {
-    border-collapse: collapse;
-    width: 100%;
-}
-
-th, td {
-    text-align: left;
-    padding: 8px;
-}
-
-tr:nth-child(even){background-color: #f2f2f2}
-
-th {
-    background-color: #4CAF50;
-    color: white;
-}
-</style>
-
+<!--display_layout-->
 <table>
 	<tr>
 		<th>Game Title</th>
-		<th></th>
+		<th>Game Genre</th>
+		<th>Game Console</th>
+		<th>Edit**</th>
+		<th>Delete**</th>
 	</tr>
 	<tr>
 		<%@games.each do |game| %>
 
 		<td><a href="/games/<%=game.title_slug%>"><%=game.title%></td>
+		<td><%=game.genre%></td>
+		<td><a href="/game_consoles/<%=game.game_console.console_slug%>"><%=game.game_console.name%></td>
 			<%if current_player.id == game.player_id%>
 		<td><a href="/games/<%=game.title_slug%>/edit">Edit</a></td>
+		<td><form action="/games/<%=game.title_slug%>/delete" method="post"><input id="hidden" type="hidden" name="_method" value="delete"><input type="submit" value="delete"></td>
 		<%end%>
 	<tr>
 
@@ -36,8 +23,9 @@ th {
 				
 <%end%>
 </table>
+** The system will only allow you to 'delete' or 'edit' games that are your own...<br>
 
 
 
-<%=Time.now%>
+
 

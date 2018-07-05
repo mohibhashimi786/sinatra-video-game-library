@@ -1,39 +1,17 @@
-<style>
-table {
-    border-collapse: collapse;
-    width: 100%;
-}
-
-th, td {
-    text-align: left;
-    padding: 8px;
-}
-
-tr:nth-child(even){background-color: #f2f2f2}
-
-th {
-    background-color: #4CAF50;
-    color: white;
-}
-</style>
-
+<!--display_layout-->
 <table>
-	<tr>
+	<tr><h1 align="center">Console Collection</h1>
 		<th>Game Console Name</th>
 		<!-- Can add additional attributes here if need be <th>Game Title</th> -->
 		
 	</tr>
 	<tr>
 		<%@game_consoles.each do |console| %>
-
 		<td><a href="/game_consoles/<%=console.console_slug%>"><%=console.name%></td>
 	<tr>
-
-				<br>
-				
 <%end%>
 </table>
 
-<br>
 
-<%=Time.now%>
+
+

@@ -4,7 +4,7 @@ class PlayersController < ApplicationController
 		
 		@player = Player.find_by_slug(params[:slug])
 
-		erb :"/players/show"
+		erb :"/players/show", :layout => :display_layout
 	end
 
 
