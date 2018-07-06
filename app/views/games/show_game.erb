@@ -1,6 +1,8 @@
 <!--display_layout-->
 <br><br><br><br>
-
+<%if flash.has?(:message) %>
+	<%=flash[:message] %>
+	<%end%>
 <table>
 	<tr>
 		<th>Game Owner</th>

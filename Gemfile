@@ -19,6 +19,7 @@ gem 'bcrypt'
 gem "tux"
 gem 'email_validator'
 gem 'data_mapper'
+gem 'rack-flash3'
 
 
 group :test do

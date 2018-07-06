@@ -1,5 +1,13 @@
-class GamesController < ApplicationController
 
+require 'rack-flash'
+
+class GamesController < ApplicationController
+	configure do
+   
+    use Rack::Flash 
+   
+	    
+	end
 
 	get '/games' do 
 			@games = Game.all 
@@ -37,7 +45,8 @@ class GamesController < ApplicationController
 			current_player.games << @game 
 			current_player.save
 			@game.save
-			
+
+			flash[:message] = "Success, your game has been posted."
 			redirect to "games/#{@game.title_slug}"
 
 		else
@@ -88,6 +97,8 @@ class GamesController < ApplicationController
 			@game.save
 			current_player.save
 
+			flash[:message] = "Success, your game has been updated."
+
 			redirect to "/games/#{@game.title_slug}"
 		
 		end
@@ -104,6 +115,9 @@ class GamesController < ApplicationController
 			if @game && current_player.id == @game.player_id
 				
 				@game.delete
+
+				flash[:message] = "Game has been deleted."
+
 				redirect to "/games"
 
 			else
