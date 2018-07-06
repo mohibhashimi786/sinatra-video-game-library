@@ -1,4 +1,7 @@
-<!--display_layout-->
+<!--display_layout--><br><br>
+<%if flash.has?(:message) %>
+	<%=flash[:message] %>
+	<%end%>
 <table>
 	<tr>
 		<th>Game Title</th>
@@ -18,9 +21,7 @@
 		<td><form action="/games/<%=game.title_slug%>/delete" method="post"><input id="hidden" type="hidden" name="_method" value="delete"><input type="submit" value="delete"></td>
 		<%end%>
 	<tr>
-
-				<br>
-				
+			
 <%end%>
 </table>
 ** The system will only allow you to 'delete' or 'edit' games that are your own...<br>
