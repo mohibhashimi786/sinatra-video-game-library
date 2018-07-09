@@ -3,12 +3,15 @@
 <%if flash.has?(:message) %>
 	<%=flash[:message] %>
 	<%end%>
+	<h1 align="center"> Game Info </h1>
 <table>
 	<tr>
 		<th>Game Owner</th>
 		<th>Game Title</th>
 		<th>Game Genre</th>
 		<th>Game Console</th>
+		<th>Edit**</th>
+		<th>Delete**</th>
 	</tr>
 	<tr>
 		<td><a href="/players/<%=@game.player.slug%>"><%=@game.player.moniker%></td>
@@ -20,9 +23,8 @@
 		<td><form action="/games/<%=@game.title_slug%>/delete" method="post"><input id="hidden" type="hidden" name="_method" value="delete"><input type="submit" value="delete"></td>
 		<%end%>
 	<tr>
-
-				<br>
 </table>
+** The system will only give you the option to modify or delete the game if you are the current owner of the game...<br><br>
 <div style="position: absolute; bottom: 40px;  width: 100%; text-align:center;">
 <a href="/games/new"><h3><b>Create New Game<b></h3></a>
 </div>
