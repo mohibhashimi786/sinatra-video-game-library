@@ -1,0 +1,1 @@
+This is a learning project and in the spirit of learning, any user of this repository is free to use, build upon and share this repository.
