@@ -33,7 +33,7 @@ class PlayersController < ApplicationController
 	get '/login' do 
 
 		if !logged_in?
-		erb :"players/login"
+		erb :"players/login", :layout => :intro_layout
 		else
 		redirect to "/games"
 		end
